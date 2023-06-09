@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belly Button Biodiversity</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            font-size: 16px;
+        }
+        .jumbotron {
+            background: url("images/bubble_background.png");
+            color: white;
+            text-shadow: black 0 0 10px;
+        }
+        .well {
+            border-color: rgb(203, 240, 120);
+            background-color: rgba(203, 240, 120, 0.4)
+        }
+        #panel-1 {
+            border-color: rgb(167, 222, 241);
+        }
+        .panel-1 {
+            background-color: rgba(167, 222, 241, 0.4);
+            border-color: rgb(167, 222, 241);
+        }
+        #panel-2 {
+            padding-left: 0;
+            padding-right: 0;
+            border-color: rgb(228, 97, 97);
+        }
+        .panel-2 {
+            background-color: rgba(228, 97, 97, 0.3);
+            border-color: rgb(228, 97, 97);
+        }
+        ul {
+            margin-left: -15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1>Belly Button Biodiversity Dashboard</h1>
+                <p>Use the interactive charts below to explore the dataset</p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2">
+                <div class="well">
+                    <h5>Test Subject ID No.:</h5>
+                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                </div>
+                <div id="panel-1" class="panel">
+                    <div class="panel-heading panel-1">
+                        <h3 class="panel-title">Demographic Info</h3>
+                    </div>
+                    <div id="sample-metadata" class="panel-body"></div> <!--STYLE, add bg colour-->
+                </div>
+            </div>
+
+            <div id="panel-2" class="col-md-10 panel">
+                <div class="panel-heading panel-2">
+                    <h2>What Am I Looking At?</h2>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <ul>
+                            <li>Top 10 Bacterial Cultures Found
+                                <ul>
+                                    <li>The 10 most common bacteria strains found in the test subject&#39;s belly button. Bacteria are listed by their OTU ID numbers, and hovering over a bar shows strain names and the number of bacteria found per cluster.</li>
+                                </ul>
+                            </li>
+                            <li>
+                            Belly Button Washing Frequency: Scrubs Per Week
+                                <ul>
+                                    <li>How many times did the test subject wash their belly button each week? Ranges from 0 to 10.</li>
+                                </ul>
+                            </li>
+                            <li>
+                            Bacteria Cultures Per Sample
+                                <ul>
+                                    <li>A comprehensive bubble chart of bacteria cultures found in the test subject&#39;s belly button. Cultures are, from left to right, ordered by OTU ID number, and the size of each bubble demonstrates the number of bacteria in each culture. Hovering over a bubble shows strain names, the OTU ID, and the number of bacteria in each cluster.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <sub>NOTE: Colors in the &ldquo;Top 10 Bacteria Cultures Found&rdquo; graph do not correspond with colors in the &ldquo;Bacteria Cultures Per Sample&rdquo; graph.</sub>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="bar"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="gauge"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bubble"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="static/chart.js"></script>
+
+</body>
+
+</html>
